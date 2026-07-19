@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>PRO CAD Steel Engineering | Precision in Every Detail</title>
+<meta content="Global leaders in steel detailing, structural design, and connection design. Engineering precision for global infrastructure." name="description"/>
+<link href="procad.jpg" rel="icon" type="image/jpeg"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600;700;800&family=Inter:wght@400;500&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface": "#1a1b1e",
+                        "on-background": "#1a1b1e",
+                        "inverse-on-surface": "#f1f0f4",
+                        "secondary-fixed-dim": "#ffb596",
+                        "surface-container-low": "#f4f3f7",
+                        "on-primary-container": "#708ab5",
+                        "surface-variant": "#e3e2e6",
+                        "primary-fixed": "#d6e3ff",
+                        "on-secondary-container": "#541d00",
+                        "surface-tint": "#465f88",
+                        "error": "#ba1a1a",
+                        "tertiary": "#0a0a0a",
+                        "on-tertiary-container": "#898888",
+                        "background": "#faf9fd",
+                        "inverse-primary": "#aec7f6",
+                        "on-surface-variant": "#44474e",
+                        "outline": "#74777f",
+                        "ink-dark": "#0F172A",
+                        "secondary-container": "#fe6500",
+                        "surface-dim": "#dad9dd",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed-variant": "#7c2e00",
+                        "secondary-fixed": "#ffdbcd",
+                        "secondary": "#a33e00",
+                        "surface-container-high": "#e9e7eb",
+                        "on-primary-fixed": "#001b3d",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#e3e2e6",
+                        "tertiary-fixed": "#e4e2e1",
+                        "surface": "#faf9fd",
+                        "on-secondary-fixed": "#360f00",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#c8c6c6",
+                        "primary-container": "#002147",
+                        "surface-muted": "#F5F7F9",
+                        "primary": "#000a1e",
+                        "on-error": "#ffffff",
+                        "surface-bright": "#faf9fd",
+                        "inverse-surface": "#2f3033",
+                        "outline-variant": "#c4c6cf",
+                        "error-container": "#ffdad6",
+                        "primary-fixed-dim": "#aec7f6",
+                        "blueprint-gray": "#94A3B8",
+                        "on-secondary": "#ffffff",
+                        "tertiary-container": "#212121",
+                        "on-primary-fixed-variant": "#2d476f",
+                        "surface-container": "#efedf1",
+                        "on-tertiary-fixed-variant": "#474747",
+                        "on-tertiary-fixed": "#1b1c1c",
+                        "on-tertiary": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "section-padding": "120px",
+                        "column-gap": "24px",
+                        "section-padding-mobile": "64px",
+                        "grid-unit": "8px",
+                        "container-max-width": "1280px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "display-hero": ["Hanken Grotesk"],
+                        "headline-md": ["Hanken Grotesk"],
+                        "stat-num": ["Hanken Grotesk"],
+                        "body-lg": ["Inter"],
+                        "label-caps": ["JetBrains Mono"],
+                        "headline-lg-mobile": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                        "headline-lg": ["40px", {"lineHeight": "48px", "fontWeight": "700"}],
+                        "display-hero": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                        "stat-num": ["48px", {"lineHeight": "48px", "fontWeight": "800"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .technical-marker::before {
+            content: "+";
+            color: #fe6500;
+            font-family: 'JetBrains Mono', monospace;
+            margin-right: 12px;
+        }
+        .stagger-load {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .stagger-load.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        #mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        #mobile-menu.open {
+            max-height: 400px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 w-full z-50 bg-surface/95 backdrop-blur-md border-b border-outline-variant">
+<nav class="max-w-[1280px] mx-auto h-20 px-6 flex justify-between items-center">
+<div class="flex items-center gap-3">
+<img alt="PRO CAD Steel Engineering logo" class="w-11 h-11 rounded-lg object-cover shrink-0" src="procad.jpg"/>
+<div class="leading-tight">
+<span class="font-headline-md text-[18px] font-bold text-primary block">PRO CAD</span>
+<span class="font-label-caps text-[10px] text-on-surface-variant tracking-[0.15em] uppercase block">Steel Engineering</span>
+</div>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-secondary border-b-2 border-secondary font-bold font-label-caps text-label-caps transition-colors duration-200" href="#">Home</a>
+<a class="text-on-surface font-medium font-label-caps text-label-caps hover:text-secondary transition-colors duration-200" href="#">About</a>
+<a class="text-on-surface font-medium font-label-caps text-label-caps hover:text-secondary transition-colors duration-200" href="#">Services</a>
+<a class="text-on-surface font-medium font-label-caps text-label-caps hover:text-secondary transition-colors duration-200" href="#">Projects</a>
+<a class="text-on-surface font-medium font-label-caps text-label-caps hover:text-secondary transition-colors duration-200" href="#contact">Contact</a>
+</div>
+<button class="hidden md:block bg-primary text-on-primary px-6 py-3 rounded-lg font-label-caps text-label-caps font-bold hover:bg-secondary hover:-translate-y-0.5 transition-all duration-300" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
+                Get a Quote
+            </button>
+<button aria-controls="mobile-menu" aria-expanded="false" aria-label="Toggle menu" class="md:hidden w-10 h-10 rounded-lg flex items-center justify-center text-primary hover:bg-surface-container-high transition-colors" id="menu-toggle">
+<span class="material-symbols-outlined" id="menu-icon">menu</span>
+</button>
+</nav>
+<div class="md:hidden border-t border-outline-variant" id="mobile-menu">
+<div class="flex flex-col px-6 py-6 gap-6">
+<a class="text-secondary font-bold font-label-caps text-label-caps" href="#">Home</a>
+<a class="text-on-surface font-medium font-label-caps text-label-caps hover:text-secondary transition-colors duration-200" href="#">About</a>
+<a class="text-on-surface font-medium font-label-caps text-label-caps hover:text-secondary transition-colors duration-200" href="#">Services</a>
+<a class="text-on-surface font-medium font-label-caps text-label-caps hover:text-secondary transition-colors duration-200" href="#">Projects</a>
+<a class="text-on-surface font-medium font-label-caps text-label-caps hover:text-secondary transition-colors duration-200" href="#contact">Contact</a>
+<button class="bg-primary text-on-primary px-6 py-3 rounded-lg font-label-caps text-label-caps font-bold hover:bg-secondary transition-colors duration-300 w-full" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
+                    Get a Quote
+                </button>
+</div>
+</div>
+</header>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative min-h-[70vh] sm:min-h-[80vh] md:min-h-[90vh] flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="absolute inset-0 bg-primary/80 md:bg-gradient-to-r md:from-primary/95 md:via-primary/75 md:to-primary/40 z-10"></div>
+<img alt="Steel structural framework under construction, viewed from below at dusk" class="w-full h-full object-cover object-[65%_30%] md:object-center" src="https://lh3.googleusercontent.com/aida/AP1WRLtba6EvQhUwALil5LfTgWANVRm7PBSmSbWzPqWzeeTOW4oxVmS9SpVnxK33KaoxcHZkhFdHAcdXlJ61vky01fH3fDq3c3gD7wCQ0BQdCEQW5P2ElksN0Ne7gAbS1Eds_px-JGfSKN1LqQI0HRg-lgLs-j2ubDVW2NrjM6_6oGgycvU_4ogOxT6ZsSaO0_0J_m_6Mraimks4gUoP8xX50tZmhEKnVJeMvg24Ct7IcyyGKeDm0IePeE4mnA"/>
+</div>
+<div class="relative z-20 max-w-[1280px] mx-auto px-6 grid md:grid-cols-12 gap-6">
+<div class="md:col-span-8 lg:col-span-7">
+<span class="inline-flex items-center gap-2 font-label-caps text-label-caps text-secondary-fixed-dim mb-6 tracking-widest uppercase border border-secondary-fixed-dim/40 rounded-full px-4 py-2">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-container"></span>
+                        Precision Engineering
+                    </span>
+<h1 class="font-display-hero text-[40px] sm:text-[48px] md:text-display-hero text-on-primary mb-6 leading-tight">
+                        Engineering Precision for Global Infrastructure
+                    </h1>
+<p class="font-body-lg text-body-lg text-surface-variant mb-10 max-w-xl">
+                        Delivering world-class steel detailing and structural design solutions with unmatched accuracy and technical excellence.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="bg-secondary-container text-on-secondary-container px-8 py-4 rounded-lg font-bold font-label-caps text-label-caps hover:bg-secondary hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2 group">
+                            Our Portfolio
+                            <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<button class="border border-surface-variant text-on-primary px-8 py-4 rounded-lg font-bold font-label-caps text-label-caps hover:bg-surface-variant/10 hover:border-secondary-fixed-dim transition-all">
+                            Technical Team
+                        </button>
+</div>
+</div>
+</div>
+<!-- Blueprint-style grid overlay -->
+<div class="absolute inset-0 pointer-events-none opacity-10" style="background-image: linear-gradient(#94A3B8 1px, transparent 1px), linear-gradient(90deg, #94A3B8 1px, transparent 1px); background-size: 40px 40px;"></div>
+</section>
+<!-- Stats Section -->
+<section class="bg-primary py-16 md:py-24 relative overflow-hidden">
+<div class="absolute inset-0 opacity-[0.15]" style="background: radial-gradient(circle at 15% 30%, #465f88 0%, transparent 55%);"></div>
+<div class="max-w-[1280px] mx-auto px-6 relative z-10">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-0 text-center md:text-left md:divide-x md:divide-outline/20">
+<div class="stagger-load md:px-10 md:first:pl-0 md:last:pr-0">
+<div class="flex items-center justify-center md:justify-start gap-4 mb-3">
+<span class="w-14 h-14 rounded-lg bg-on-primary/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-secondary-fixed-dim text-3xl">architecture</span>
+</span>
+<span class="font-stat-num text-stat-num text-on-primary">250+</span>
+</div>
+<p class="font-label-caps text-label-caps text-on-primary-container tracking-[0.2em] uppercase">Projects Completed</p>
+</div>
+<div class="stagger-load md:px-10">
+<div class="flex items-center justify-center md:justify-start gap-4 mb-3">
+<span class="w-14 h-14 rounded-lg bg-on-primary/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-secondary-fixed-dim text-3xl">handshake</span>
+</span>
+<span class="font-stat-num text-stat-num text-on-primary">35+</span>
+</div>
+<p class="font-label-caps text-label-caps text-on-primary-container tracking-[0.2em] uppercase">Global Clients</p>
+</div>
+<div class="stagger-load md:px-10 md:first:pl-0 md:last:pr-0">
+<div class="flex items-center justify-center md:justify-start gap-4 mb-3">
+<span class="w-14 h-14 rounded-lg bg-on-primary/10 flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-secondary-fixed-dim text-3xl">engineering</span>
+</span>
+<span class="font-stat-num text-stat-num text-on-primary">55+</span>
+</div>
+<p class="font-label-caps text-label-caps text-on-primary-container tracking-[0.2em] uppercase">Expert Engineers</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Services Overview Bento Grid -->
+<section class="py-section-padding-mobile md:py-section-padding bg-surface-muted">
+<div class="max-w-[1280px] mx-auto px-6">
+<div class="mb-16 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+<div class="max-w-2xl">
+<div class="w-12 h-1 bg-secondary-container mb-6"></div>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-4">Core Competencies</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">We provide specialized services across the entire structural steel lifecycle, from initial drafting to final connection design.</p>
+</div>
+<a class="text-secondary font-bold font-label-caps text-label-caps flex items-center gap-2 hover:gap-4 transition-all shrink-0" href="#">
+                        View All Services <span class="material-symbols-outlined">east</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Steel Detailing -->
+<div class="bg-surface border border-outline-variant rounded-lg p-8 flex flex-col justify-between group hover:border-secondary hover:-translate-y-1 transition-all duration-300 min-h-[380px]">
+<div>
+<span class="font-label-caps text-label-caps text-secondary-container mb-6 block">01</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-4">Steel Detailing</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Expertise in Tekla Structures and SDS-2. We provide 3D modeling and precise shop drawings for complex structures.</p>
+</div>
+<div class="flex justify-between items-end">
+<span class="material-symbols-outlined text-outline text-4xl group-hover:text-secondary transition-colors">precision_manufacturing</span>
+<a class="w-12 h-12 rounded-lg bg-primary flex items-center justify-center text-on-primary group-hover:bg-secondary transition-colors" href="#">
+<span class="material-symbols-outlined">add</span>
+</a>
+</div>
+</div>
+<!-- Structural Design -->
+<div class="bg-surface border border-outline-variant rounded-lg p-8 flex flex-col justify-between group hover:border-secondary hover:-translate-y-1 transition-all duration-300 min-h-[380px]">
+<div>
+<span class="font-label-caps text-label-caps text-secondary-container mb-6 block">02</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-4">Structural Design</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Optimized structural analysis irrespective of geometry or materials. Proficiency in seismic, wind, and gravity load demands.</p>
+</div>
+<div class="flex justify-between items-end">
+<span class="material-symbols-outlined text-outline text-4xl group-hover:text-secondary transition-colors">foundation</span>
+<a class="w-12 h-12 rounded-lg bg-primary flex items-center justify-center text-on-primary group-hover:bg-secondary transition-colors" href="#">
+<span class="material-symbols-outlined">add</span>
+</a>
+</div>
+</div>
+<!-- Connection Design -->
+<div class="bg-surface border border-outline-variant rounded-lg p-8 flex flex-col justify-between group hover:border-secondary hover:-translate-y-1 transition-all duration-300 min-h-[380px]">
+<div>
+<span class="font-label-caps text-label-caps text-secondary-container mb-6 block">03</span>
+<h3 class="font-headline-md text-headline-md text-primary mb-4">Connection Design</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6">Detailed connection design for fabricators globally, ensuring safety and ease of fabrication in accordance with AISC/CISC standards.</p>
+</div>
+<div class="flex justify-between items-end">
+<span class="material-symbols-outlined text-outline text-4xl group-hover:text-secondary transition-colors">hardware</span>
+<a class="w-12 h-12 rounded-lg bg-primary flex items-center justify-center text-on-primary group-hover:bg-secondary transition-colors" href="#">
+<span class="material-symbols-outlined">add</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Why Choose Us -->
+<section class="py-section-padding-mobile md:py-section-padding bg-surface overflow-hidden">
+<div class="max-w-[1280px] mx-auto px-6">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+<div class="relative">
+<div class="aspect-[4/5] bg-surface-variant relative overflow-hidden">
+<img alt="Structural engineer reviewing blueprints in a modern studio" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAh3Ekm5XaMgVAu3H7u-3kCOYyaEKmFsSNf7wqORJxQA5K-s7julMOGM7XmQ9iMROhPUvmwf82Eu2HvrVpwQ9iGfFVnynsuA4qBP6MZk1JyYqB4CjNf2SqO_XevgWy_ruVG3O6iYxrdxgDtIvc-4FjvbU9yL0GE2ZuKjv9Pt6a5XzwtwbZNOD4Coco5IMHuuLqZizrcMS6Od6u31E5xwbHx0CKhqMSXBjelSvao9NWSNf4Ot1teY-tvJZG0TGNe2e4W_uxh1JVQlg"/>
+<!-- Overlay card -->
+<div class="absolute bottom-4 right-4 sm:bottom-8 sm:right-8 bg-primary rounded-lg p-6 sm:p-8 max-w-[240px] sm:max-w-[280px] shadow-[0_20px_40px_-10px_rgba(0,10,30,0.35)]">
+<div class="text-stat-num font-stat-num text-on-primary mb-2">9.7</div>
+<div class="font-label-caps text-label-caps text-secondary-fixed-dim uppercase tracking-wider">Client Satisfaction Rating</div>
+</div>
+</div>
+<!-- Engineering Pattern -->
+<div class="hidden sm:block absolute -top-10 -left-10 w-40 h-40 border border-outline-variant -z-10"></div>
+<div class="hidden sm:block absolute -bottom-10 -right-10 w-40 h-40 border border-outline-variant -z-10"></div>
+</div>
+<div>
+<span class="font-label-caps text-label-caps text-secondary mb-4 block uppercase">Our Foundation</span>
+<div class="w-12 h-1 bg-secondary-container mb-6"></div>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-8">Why Engineering Leaders Partner With Us</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-10">
+                            We stay true to our founding principles: exceptional service, innovation, and technical integrity. Every project is a responsibility we take pride in.
+                        </p>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-12 mb-12">
+<ul class="space-y-4">
+<li class="flex items-center font-body-md text-primary font-bold">
+<span class="material-symbols-outlined text-secondary mr-3 text-[20px]">check_circle</span>
+                                    Unrivalled workmanship
+                                </li>
+<li class="flex items-center font-body-md text-primary font-bold">
+<span class="material-symbols-outlined text-secondary mr-3 text-[20px]">check_circle</span>
+                                    Professional &amp; Qualified Team
+                                </li>
+</ul>
+<ul class="space-y-4">
+<li class="flex items-center font-body-md text-primary font-bold">
+<span class="material-symbols-outlined text-secondary mr-3 text-[20px]">check_circle</span>
+                                    Responsive &amp; Respectful
+                                </li>
+<li class="flex items-center font-body-md text-primary font-bold">
+<span class="material-symbols-outlined text-secondary mr-3 text-[20px]">check_circle</span>
+                                    Personalised Solutions
+                                </li>
+</ul>
+</div>
+<div class="border-t border-outline-variant pt-10">
+<div class="flex items-center gap-6 bg-surface-container-low rounded-lg p-4 -m-4">
+<div class="w-16 h-16 rounded-lg bg-surface-container-high overflow-hidden shrink-0">
+<img alt="Portrait of Alan Michaelis, Technical Director" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMaXGHZqlkmcztPXVSqM5YP_7pQ0rNUCFu3M0YKQTCVHIZpiTR-kw3ADjWl6TG66oVmXYKBn5-mS966FlHgVu8G5FkH_zIpuv9grfO780hU1Hic1OrpdFZ7GFrINQ11vnR-pYDX9IEMgwZe_ODJCHJFzvlVSJdKbZdYr49R2-3xVp_UTfuXGFeHeq1ICCRNcWGCy9Rf48CMe_T4J1QKiuCZmIa-awsin9VenzuIIFDx6Cz1YX0iNdqAgwgkcSZCyWXhMPplbySaQ"/>
+</div>
+<div>
+<h4 class="font-headline-md text-[18px] text-primary">Alan Michaelis</h4>
+<p class="font-label-caps text-label-caps text-on-surface-variant">Technical Director</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="py-16 md:py-24 bg-primary text-on-primary relative overflow-hidden">
+<div class="absolute inset-0 pointer-events-none opacity-[0.07]" style="background-image: linear-gradient(#94A3B8 1px, transparent 1px), linear-gradient(90deg, #94A3B8 1px, transparent 1px); background-size: 40px 40px;"></div>
+<div class="max-w-[1280px] mx-auto px-6 text-center relative z-10">
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-6">Ready to initiate your next project?</h2>
+<p class="font-body-lg text-body-lg text-surface-variant mb-10 max-w-2xl mx-auto">
+                    Get in touch with our technical team for a comprehensive consultation and quote on your structural steel detailing requirements.
+                </p>
+<button class="bg-secondary-container text-on-secondary-container px-8 sm:px-12 py-4 sm:py-5 rounded-lg font-bold font-label-caps text-label-caps hover:bg-secondary hover:-translate-y-0.5 transition-all flex items-center justify-center gap-3 mx-auto">
+                    Request a Custom Quote
+                    <span class="material-symbols-outlined">mail</span>
+</button>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-section-padding-mobile md:py-section-padding bg-surface-muted" id="contact">
+<div class="max-w-[1280px] mx-auto px-6">
+<div class="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-6">
+<!-- Info panel -->
+<div class="lg:col-span-2 bg-primary text-on-primary p-10 md:p-12 rounded-lg relative overflow-hidden">
+<div class="absolute inset-0 pointer-events-none opacity-[0.07]" style="background-image: linear-gradient(#94A3B8 1px, transparent 1px), linear-gradient(90deg, #94A3B8 1px, transparent 1px); background-size: 40px 40px;"></div>
+<div class="relative z-10">
+<div class="w-12 h-1 bg-secondary-container mb-6"></div>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-4">Get In Touch</h2>
+<p class="font-body-lg text-body-lg text-surface-variant mb-10">Have a structural steel project in mind? Send us the details and our technical team will respond within one business day.</p>
+<ul class="space-y-6">
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary-fixed-dim">mail</span>
+<div>
+<p class="font-label-caps text-label-caps text-secondary-fixed-dim uppercase mb-1">Email</p>
+<p class="font-body-md text-body-md">info@procad.com</p>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary-fixed-dim">call</span>
+<div>
+<p class="font-label-caps text-label-caps text-secondary-fixed-dim uppercase mb-1">Phone</p>
+<p class="font-body-md text-body-md">+142 42080995</p>
+</div>
+</li>
+<li class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary-fixed-dim">location_on</span>
+<div>
+<p class="font-label-caps text-label-caps text-secondary-fixed-dim uppercase mb-1">Address</p>
+<p class="font-body-md text-body-md">4th floor, No.402, Plot No 42/D Sec-C, Karanjade Panvel, Raigad, Mumbai 410206 Maharashtra</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<!-- Form panel -->
+<div class="lg:col-span-3 bg-surface border border-outline-variant rounded-lg p-8 md:p-12">
+<form id="contact-form" novalidate="">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+<div>
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase block mb-2" for="cf-name">Name</label>
+<input class="w-full border border-outline-variant rounded-lg px-4 py-3 bg-surface-container-lowest font-body-md text-body-md focus:outline-none focus:border-secondary transition-colors" id="cf-name" name="name" required="" type="text"/>
+</div>
+<div>
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase block mb-2" for="cf-email">Email</label>
+<input class="w-full border border-outline-variant rounded-lg px-4 py-3 bg-surface-container-lowest font-body-md text-body-md focus:outline-none focus:border-secondary transition-colors" id="cf-email" name="email" required="" type="email"/>
+</div>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+<div>
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase block mb-2" for="cf-phone">Phone (Optional)</label>
+<input class="w-full border border-outline-variant rounded-lg px-4 py-3 bg-surface-container-lowest font-body-md text-body-md focus:outline-none focus:border-secondary transition-colors" id="cf-phone" name="phone" type="tel"/>
+</div>
+<div>
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase block mb-2" for="cf-service">Service</label>
+<select class="w-full border border-outline-variant rounded-lg px-4 py-3 bg-surface-container-lowest font-body-md text-body-md focus:outline-none focus:border-secondary transition-colors" id="cf-service" name="service">
+<option value="Steel Detailing">Steel Detailing</option>
+<option value="Structural Design">Structural Design</option>
+<option value="Connection Design">Connection Design</option>
+<option value="Other">Other</option>
+</select>
+</div>
+</div>
+<div class="mb-8">
+<label class="font-label-caps text-label-caps text-on-surface-variant uppercase block mb-2" for="cf-message">Project Details</label>
+<textarea class="w-full border border-outline-variant rounded-lg px-4 py-3 bg-surface-container-lowest font-body-md text-body-md focus:outline-none focus:border-secondary transition-colors resize-none" id="cf-message" name="message" required="" rows="5"></textarea>
+</div>
+<div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+<button class="bg-secondary-container text-on-secondary-container px-8 py-4 rounded-lg font-bold font-label-caps text-label-caps hover:bg-secondary hover:-translate-y-0.5 transition-all flex items-center justify-center gap-2" type="submit">
+                            Send Message
+                            <span class="material-symbols-outlined text-[18px]">mail</span>
+</button>
+<p aria-live="polite" class="font-label-caps text-label-caps text-on-surface-variant" id="cf-status"></p>
+</div>
+</form>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-primary-container border-t border-outline">
+<div class="max-w-[1280px] mx-auto px-6 py-16 md:py-24">
+<div class="flex flex-col md:flex-row justify-between gap-16">
+<div class="md:w-1/3">
+<div class="flex items-center gap-3 mb-6">
+<img alt="PRO CAD Steel Engineering logo" class="w-12 h-12 rounded-lg object-cover shrink-0" src="procad.jpg"/>
+<div class="leading-tight">
+<span class="font-headline-md text-[20px] font-bold text-on-primary block">PRO CAD</span>
+<span class="font-label-caps text-[10px] text-secondary-fixed-dim tracking-[0.15em] uppercase block">Steel Engineering</span>
+</div>
+</div>
+<p class="font-body-md text-body-md text-surface-variant mb-8">
+                        Precision in Every Detail. Providing world-class steel detailing and structural design services to the global construction industry.
+                    </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 rounded-lg border border-outline flex items-center justify-center text-on-primary hover:bg-secondary hover:border-secondary hover:-translate-y-0.5 transition-all" href="#">
+<span class="material-symbols-outlined text-[18px]">share</span>
+</a>
+<a class="w-10 h-10 rounded-lg border border-outline flex items-center justify-center text-on-primary hover:bg-secondary hover:border-secondary hover:-translate-y-0.5 transition-all" href="#">
+<span class="material-symbols-outlined text-[18px]">groups</span>
+</a>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-12 md:w-2/3">
+<div>
+<h5 class="font-label-caps text-label-caps text-secondary-fixed-dim uppercase tracking-widest mb-6">Services</h5>
+<ul class="space-y-4">
+<li><a class="font-body-md text-surface-variant hover:text-secondary-fixed transition-colors" href="#">Structural Design</a></li>
+<li><a class="font-body-md text-surface-variant hover:text-secondary-fixed transition-colors" href="#">Steel Detailing</a></li>
+<li><a class="font-body-md text-surface-variant hover:text-secondary-fixed transition-colors" href="#">Connection Design</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-caps text-label-caps text-secondary-fixed-dim uppercase tracking-widest mb-6">Company</h5>
+<ul class="space-y-4">
+<li><a class="font-body-md text-surface-variant hover:text-secondary-fixed transition-colors" href="#">Technical Team</a></li>
+<li><a class="font-body-md text-surface-variant hover:text-secondary-fixed transition-colors" href="#">Recent Projects</a></li>
+<li><a class="font-body-md text-surface-variant hover:text-secondary-fixed transition-colors" href="#contact">Contact Us</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="mt-16 md:mt-20 pt-8 border-t border-outline flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-label-caps text-[10px] text-on-tertiary-container tracking-widest uppercase text-center md:text-left">
+                    © 2026 PRO CAD Steel Engineering. Precision in Every Detail.
+                </p>
+<div class="flex gap-8">
+<a class="font-label-caps text-[10px] text-on-tertiary-container hover:text-on-primary transition-colors uppercase tracking-widest" href="#">Privacy Policy</a>
+<a class="font-label-caps text-[10px] text-on-tertiary-container hover:text-on-primary transition-colors uppercase tracking-widest" href="#">Terms of Service</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        // Simple Intersection Observer for stagger loading
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.stagger-load').forEach((el, index) => {
+            el.style.transitionDelay = `${index * 150}ms`;
+            observer.observe(el);
+        });
+
+        // Sticky Nav logic
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-md');
+            } else {
+                header.classList.remove('shadow-md');
+            }
+        });
+
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        menuToggle.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.toggle('open');
+            menuToggle.setAttribute('aria-expanded', String(isOpen));
+            menuIcon.textContent = isOpen ? 'close' : 'menu';
+        });
+
+        mobileMenu.querySelectorAll('a, button').forEach((el) => {
+            el.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+                menuToggle.setAttribute('aria-expanded', 'false');
+                menuIcon.textContent = 'menu';
+            });
+        });
+
+        // Contact form: build a mailto: with the submitted details
+        const contactForm = document.getElementById('contact-form');
+        const contactStatus = document.getElementById('cf-status');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const name = document.getElementById('cf-name').value.trim();
+            const email = document.getElementById('cf-email').value.trim();
+            const phone = document.getElementById('cf-phone').value.trim();
+            const service = document.getElementById('cf-service').value;
+            const message = document.getElementById('cf-message').value.trim();
+
+            if (!name || !email || !message) {
+                contactStatus.textContent = 'Please fill in your name, email, and project details.';
+                return;
+            }
+
+            const subject = `New project inquiry from ${name} (${service})`;
+            const body = `Name: ${name}\nEmail: ${email}\n${phone ? `Phone: ${phone}\n` : ''}Service: ${service}\n\n${message}`;
+            const mailto = `mailto:info@procad.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+            window.location.href = mailto;
+            contactStatus.textContent = 'Opening your email client to send this message…';
+        });
+    </script>
+</body>
+</html>
