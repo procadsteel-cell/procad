@@ -394,7 +394,7 @@
 <span class="material-symbols-outlined text-secondary-fixed-dim">mail</span>
 <div>
 <p class="font-label-caps text-label-caps text-secondary-fixed-dim uppercase mb-1">Email</p>
-<p class="font-body-md text-body-md">info@procad.com</p>
+<p class="font-body-md text-body-md">info@procadsteel.com</p>
 </div>
 </li>
 <li class="flex items-start gap-4">
@@ -581,7 +581,7 @@
 
             const subject = `New project inquiry from ${name} (${service})`;
             const body = `Name: ${name}\nEmail: ${email}\n${phone ? `Phone: ${phone}\n` : ''}Service: ${service}\n\n${message}`;
-            const mailto = `mailto:info@procad.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            const mailto = `mailto:info@procadsteel.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
             window.location.href = mailto;
             contactStatus.textContent = 'Opening your email client to send this message…';
